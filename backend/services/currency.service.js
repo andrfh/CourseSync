@@ -1,13 +1,32 @@
 import CurrencyRepo from '../db/repositories/currency.repository.js'
 
 class CurrencyService {
+    async createCurrency(currency) {
+        const currencies = await CurrencyRepo.createCurrency(currency);
+        return currencies
+    }
+
     async getCurrencies() {
         const currencies = await CurrencyRepo.getAllCurrencies();
-        console.log(currencies)
         return currencies.map(c => ({
             code: c.char_code,
             name: c.name,
         }));
+    }
+
+    async getOneCurrency(id) {
+        const currency = await CurrencyRepo.getOneCurrency(id);
+        return currency
+    }
+
+    async updateCurrency(id, newCurrency) {
+        const currency = await CurrencyRepo.updateCurrency(id, newCurrency);
+        return currency
+    }
+
+    async deleteCurrency(id) {
+        const currency = await CurrencyRepo.deleteCurrency(id);
+        return currency
     }
 
 }

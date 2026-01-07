@@ -27,6 +27,50 @@ class CurrencyRepo {
         );
         return rows;
     }
+
+    async getOneCurrency(id) {
+        const { rows } = await pool.query(
+            `
+            SELECT * FROM currencies
+            WHERE id = '${id}'
+            `
+        );
+        return rows;
+    }
+
+    async updateCurrency(id, newCurrency) {
+        const query = `
+            UPDATE currencies
+            SET
+                id = $1,
+                char_code = $2,
+                name = $3,
+                nominal = $4,
+                source = $5
+            WHERE id = '${id}'
+            `
+
+        const values = [
+            newCurrency.id,
+            newCurrency.charCode,
+            newCurrency.name,
+            newCurrency.nominal,
+            newCurrency.source,
+        ];
+
+        const { rows } = await pool.query(query, values);
+        return rows;
+    }
+
+    async deleteCurrency(id) {
+        const { rows } = await pool.query(
+            `
+            DELETE FROM currencies
+            WHERE id = '${id}'
+            `
+        )
+        return rows
+    }
 }
 
 export default new CurrencyRepo;
