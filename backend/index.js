@@ -1,5 +1,6 @@
 import express from 'express'
-import router from './router.js';
+import router from './api/router.js'
+import { pool } from './config/db.js'
 
 const PORT = 5000;
 
@@ -9,7 +10,20 @@ app.use(express.json())
 
 app.use('/api', router)
 
-app.listen(PORT, () => {
-  console.log(`Server is running at http://localhost:${PORT}`);
-});
+async function start() {
+  try {
+    await pool.query('SELECT 1');
+    console.log('DB connected');
 
+    app.listen(PORT, () => {
+      console.log(`Server is running at http://localhost:${PORT}`);
+    });
+
+  } catch (e) {
+    console.error('Failed to connect to DB');
+    console.error(e);
+    process.exit(1);
+  }
+}
+
+start();
