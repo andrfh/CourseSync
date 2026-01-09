@@ -1,6 +1,7 @@
 import Router from 'express'
 import currencyController from './Controllers/currency.controller.js';
 import ratesController from './Controllers/rates.controller.js';
+import syncController from './Controllers/sync.controller.js';
 
 const router = new Router()
 
@@ -15,5 +16,7 @@ router.get("/rates/:id", ratesController.getOneRate);
 router.post("/rates", ratesController.createRate);
 router.put("/rates/:id", ratesController.updateRate)
 router.delete("/rates/:id", ratesController.deleteRate);
+
+router.get("/sync", syncController.syncWithCBR)
 
 export default router; 

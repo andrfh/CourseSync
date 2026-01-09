@@ -8,10 +8,7 @@ class CurrencyService {
 
     async getCurrencies() {
         const currencies = await CurrencyRepo.getAllCurrencies();
-        return currencies.map(c => ({
-            code: c.char_code,
-            name: c.name,
-        }));
+        return currencies
     }
 
     async getOneCurrency(id) {

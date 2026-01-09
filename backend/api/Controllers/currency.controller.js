@@ -52,6 +52,8 @@ class CurrencyController {
             return res.status(e.status || 500).json({ error: e.message || 'Internal Server Error' });
         }
     }
+
+    
 }
 
 export default new CurrencyController

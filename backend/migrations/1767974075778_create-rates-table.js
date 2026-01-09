@@ -15,7 +15,7 @@ export async function up(pgm) {
   pgm.addConstraint(
     'rates',
     'rates_currency_date_unique',
-    { unique: ['currency_id', 'date'] }
+    { unique: ['currency_id'] }
   );
 }
 
