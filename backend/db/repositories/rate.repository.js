@@ -1,4 +1,4 @@
-import { pool } from '../../config/db.js'
+import { pool } from '../../db/db.js'
 
 class RateRepo {
     async createRate(rates) {
@@ -6,7 +6,9 @@ class RateRepo {
             INSERT INTO rates (currency_id, rate, date)
             VALUES ($1, $2, $3)
             ON CONFLICT (currency_id, date)
-            DO UPDATE SET rate = EXCLUDED.rate
+            DO UPDATE SET 
+                rate = EXCLUDED.rate,
+                updated_at = now()
         `;
 
         const values = [

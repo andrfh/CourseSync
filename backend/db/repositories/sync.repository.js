@@ -1,4 +1,4 @@
-import { pool } from '../../config/db.js'
+import { pool } from '../../db/db.js'
 
 class SyncRepo {
     async syncWithCBR(data) {
@@ -17,7 +17,8 @@ class SyncRepo {
             ON CONFLICT (currency_id)
             DO UPDATE SET
                 rate = EXCLUDED.rate,
-                date = EXCLUDED.date
+                date = EXCLUDED.date,
+                updated_at = now()
             `;
         try {
             const { rows } = await pool.query(query, values);
