@@ -1,4 +1,6 @@
 export default function formatDate(date) {
-        const [day, month, year] = date.split('.').map(Number);
-        return new Date(year, month - 1, day);
+        const formatedDate = new Date(date)
+        return formatedDate.toLocaleString('ru-RU', {timeZone: 'Europe/Moscow'})
     }
+
+    
