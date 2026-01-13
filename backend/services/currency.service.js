@@ -48,8 +48,6 @@ class CurrencyService {
             console.log(formatedResponse)
             throw new Error(`Dynamic fetch failed`);
         } 
-        
-        return jsonCBRdata
     }
 
 }
