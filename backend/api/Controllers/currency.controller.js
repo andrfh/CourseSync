@@ -53,6 +53,15 @@ class CurrencyController {
         }
     }
 
+    async currencyDynamic(req, res) {
+        try {
+            const data = await currencyService.currencyDynamic(req.body.date_1, req.body.date_2, req.params.id);
+            res.json(data)
+        } catch (e) {
+            return res.status(e.status || 500).json({ error: e.message || 'Internal Server Error' });
+        }
+    }
+
     
 }
 

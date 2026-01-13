@@ -10,6 +10,7 @@ router.get("/currency/:id", currencyController.getOneCurrency);
 router.post("/currency", currencyController.createCurrency);
 router.put("/currency/:id", currencyController.updateCurrency)
 router.delete("/currency/:id", currencyController.deleteCurrency);
+router.post("/currency/:id/dynamic", currencyController.currencyDynamic)
 
 router.get("/rates", ratesController.getAllRates);
 router.get("/rates/:id", ratesController.getOneRate);
@@ -18,5 +19,7 @@ router.put("/rates/:id", ratesController.updateRate)
 router.delete("/rates/:id", ratesController.deleteRate);
 
 router.get("/sync", syncController.syncWithCBR)
+
+
 
 export default router; 
