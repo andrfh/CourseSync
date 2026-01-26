@@ -9,13 +9,13 @@ export async function up(pgm) {
     },
     rate: { type: 'numeric(12,6)', notNull: true },
     date: { type: 'date', notNull: true },
-    created_at: { type: 'timestamp', default: pgm.func('now()') },
+    updated_at: { type: 'timestamp', default: pgm.func('now()') },
   });
 
   pgm.addConstraint(
     'rates',
     'rates_currency_date_unique',
-    { unique: ['currency_id', 'date'] }
+    { unique: ['currency_id'] }
   );
 }
 

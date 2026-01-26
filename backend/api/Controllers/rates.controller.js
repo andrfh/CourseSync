@@ -1,68 +1,63 @@
-import currencyService from "../../services/currency.service.js";
+import RateService from "../../services/rates.service.js";
 
-class CurrencyController {
-    async createCurrency (req, res) {
+class RatesController {
+    async createRate (req, res) {
         try{
-            const data = await currencyService.createCurrency(req.body)
+            const data = await RateService.createRate(req.body)
             res.json(data)
         } catch (e) {
             return res.status(e.status || 500).json({ error: e.message || 'Internal Server Error' });
         }
-        
     }
 
-    async getAllCurrencies(req, res) {
+    async getAllRates(req, res) {
         try {
-            const data = await currencyService.getCurrencies();
+            const data = await RateService.getAllRates();
             res.json(data);
         } catch (e) {
             return res.status(e.status || 500).json({ error: e.message || 'Internal Server Error' });
         }
     }
 
-    async getOneCurrency(req, res) {
+    async getOneRate(req, res) {
         try {
-            const data = await currencyService.getOneCurrency(req.params.id);
+            const data = await RateService.getOneRate(req.params.id);
             if (data[0]) {
                 res.json(data)
             } else {
-                return res.status(404).json({ error: 'Currency not found' });
+                return res.status(404).json({ error: 'Rate not found' });
             }
-            
         } catch (e) {
             return res.status(e.status || 500).json({ error: e.message || 'Internal Server Error' });
         }
-        
     }
 
-     async updateCurrency(req, res) {
-        try {
-            const data = await currencyService.updateCurrency(req.params.id, req.body);
+     async updateRate(req, res) {
+        try {   
+            const data = await RateService.updateRate(req.params.id, req.body);
             res.json(data)
         } catch (e) {
             return res.status(e.status || 500).json({ error: e.message || 'Internal Server Error' });
         }
     }
 
-    async deleteCurrency(req, res) {
+    async deleteRate(req, res) {
         try {
-            const data = await currencyService.deleteCurrency(req.params.id);
+            const data = await RateService.deleteRate(req.params.id);
             res.json(data)
         } catch (e) {
             return res.status(e.status || 500).json({ error: e.message || 'Internal Server Error' });
         }
     }
 
-    async currencyDynamic(req, res) {
+    async getFormatedRates(req, res) {
         try {
-            const data = await currencyService.currencyDynamic(req.body.date_1, req.body.date_2, req.params.id);
-            res.json(data)
+            const data = await RateService.getFormatedRates();
+            res.json(data);
         } catch (e) {
             return res.status(e.status || 500).json({ error: e.message || 'Internal Server Error' });
         }
     }
-
-    
 }
 
-export default new CurrencyController
+export default new RatesController

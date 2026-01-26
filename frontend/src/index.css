@@ -1,0 +1,35 @@
+:root {
+  --background: linear-gradient(to bottom right,#eff6ff, #ffffff,#f5f3ff);
+  --main-gradient: linear-gradient(to bottom right, #4279FF, #AA56FB) 
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  font-family: "Open Sans", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+p {
+  font-size: 1rem;
+}

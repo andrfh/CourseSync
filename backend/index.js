@@ -1,6 +1,7 @@
 import express from 'express'
 import router from './api/router.js'
-import { pool } from './config/db.js'
+import { pool } from './db/db.js'
+import startSyncJob from './jobs/syncRates.jobs.js';
 
 const PORT = 5000;
 
@@ -12,9 +13,9 @@ app.use('/api', router)
 
 async function start() {
   try {
-    await pool.query('SELECT 1');
+    await pool.query('SELECT 1'); // Проверка подключения к БД
     console.log('DB connected');
-
+    startSyncJob(); // Ежедневная синхронизация данных
     app.listen(PORT, () => {
       console.log(`Server is running at http://localhost:${PORT}`);
     });
