@@ -14,7 +14,7 @@ class SyncService {
             nominal: Number(valute.Nominal[0]),
             source: 'www.cbr.ru',
             value: valute.Value[0].replace(',', '.'),
-            date: result.ValCurs.$.Date,
+            date: jsonCBRdata.ValCurs.$.Date,
             }));
             
         const updateCurrencies = await SyncRepo.updateNewCurrencies(formattedCBRdata)

@@ -35,7 +35,8 @@ class RateService {
             code: rate.code,
             name: rate.name,
             nominal: rate.nominal,
-            value: rate.value + ' ' + currencySymbols[rate.code],
+            value: rate.value.slice(0, 7),
+            symbol:currencySymbols[rate.code],
             date: formatDate(rate.date),
             source: rate.source,
             updated_at: formatDate(rate.updated_at)
