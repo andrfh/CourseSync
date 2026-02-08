@@ -2,6 +2,8 @@
 
 Данные подтягиваются черезAPI от ЦБ РФ в формате XML и парсятся в JSON. 
 
+Публичная страница: https://ratesexchange.vercel.app/
+
 ## **Используемые технологии:**
 
 - **Frontend**: React.js + TanStack Query
