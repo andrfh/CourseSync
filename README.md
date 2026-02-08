@@ -18,33 +18,33 @@
 git clone https://github.com/andrfh/CourseSync.git
 ```
 
-1. Установить зависимости в папке /backend
+2. Установить зависимости в папке /backend
 
 ```bash
 cd backend
 npm i 
 ```
 
-1. Создать миграции БД 
+3. Создать миграции БД 
 
 ```bash
 npm run migrate
 ```
 
-1. Запустить сервер 
+4. Запустить сервер 
 
 ```bash
 npm start
 ```
 
-1. Перейти в папку /frontend и установить зависимости
+5. Перейти в папку /frontend и установить зависимости
 
 ```bash
 cd ../frontend
 npm i
 ```
 
-1. Собрать проект
+6. Собрать проект
 
 ```bash
 npm build
