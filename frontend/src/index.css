@@ -1,6 +1,10 @@
 :root {
   --background: linear-gradient(to bottom right,#eff6ff, #ffffff,#f5f3ff);
-  --main-gradient: linear-gradient(to bottom right, #4279FF, #AA56FB) 
+  --main-gradient: linear-gradient(to bottom right, #4279FF, #AA56FB);
+  --inverce-gradient: linear-gradient(to bottom right, #AA56FB, #4279FF);
+  --info_block_1: #9841FB;
+  --info_block_2: #00A63E;
+  --info_block_3: #155DFC;
 }
 
 html {

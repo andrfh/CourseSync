@@ -53,6 +53,44 @@
     animation: fadeIn 0.45s ease-out forwards;
 }
 
+.sync {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.update_button {
+    opacity: 0.6;
+    transition: 0.5s all;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.update_button > img {
+    width: 24px;
+    height: 24px;
+}
+
+.update_button:hover {
+    opacity: 1;
+}
+
+.rotate_button {
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
+
 @media (min-width:700px) {
     .input {
         width: 50%;

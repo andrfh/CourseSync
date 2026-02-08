@@ -1,0 +1,43 @@
+.button {
+    width: 100%;
+    max-width: 150px;
+    padding: 10px 20px;
+    border-radius: 15px;
+    background: #00000010;
+    color: #00000090;
+    font-weight: 600;
+    font-size: 1.1rem;
+    outline: none;
+    border: none;
+    transition: 0.3s all;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: var(--main-gradient);
+    color: white;
+}
+
+
+.active {
+    width: 100%;
+    max-width: 150px;
+    padding: 10px 20px;
+    border-radius: 15px;
+    background: var(--main-gradient);
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    outline: none;
+    border: none;
+    transition: 0.3s all;
+    cursor: pointer;
+}
+
+.active:hover {
+    opacity: 0.7;
+}
+
+button:active {
+    transform: scale(0.95);
+}

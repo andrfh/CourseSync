@@ -1,0 +1,33 @@
+.block {
+    width: 100%;
+    display: inline-block;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: start;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s ease-out forwards;
+    transition: 0.3s all;
+
+}
+
+.block > span {
+    font-weight: 600;
+}
+
+.block > h3 {
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.block > p {
+    opacity: 0.6;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

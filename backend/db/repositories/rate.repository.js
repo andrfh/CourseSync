@@ -77,6 +77,17 @@ class RateRepo {
         )
         return rows
     }
+
+    async getOneFormatedRate(id) {
+        const { rows } = await pool.query(
+            `
+            SELECT currencies.id as id, char_code as code, name as name, nominal as nominal, rates.rate as value, date as date, source as source, updated_at as updated_at FROM currencies 
+            JOIN rates ON rates.currency_id = currencies.id
+            WHERE currency_id = '${id}';
+            `
+        )
+        return rows
+    }
 }
 
 export default new RateRepo;

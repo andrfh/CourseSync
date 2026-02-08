@@ -58,6 +58,15 @@ class RatesController {
             return res.status(e.status || 500).json({ error: e.message || 'Internal Server Error' });
         }
     }
+
+    async getOneFormatedRate(req, res) {
+        try {
+            const data = await RateService.getOneFormatedRate(req.params.id);
+            res.json(data);
+        } catch (e) {
+            return res.status(e.status || 500).json({ error: e.message || 'Internal Server Error' });
+        }
+    }
 }
 
 export default new RatesController

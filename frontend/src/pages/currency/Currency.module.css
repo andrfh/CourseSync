@@ -1,0 +1,113 @@
+.back_link {
+    display: flex;
+    font-size: 1.1rem;
+    font-weight: 500;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: #000000;
+    opacity: 0.9;
+    transition: 0.3s all;
+    margin-bottom: 24px;
+}
+
+.back_link:hover {
+    opacity: 0.6;
+}
+
+.back_link > img {
+    width: 20px;
+    transition: 0.3s all;
+}
+
+.back_link:hover img {
+    transform: translateX(-5px);
+}
+
+.info_top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px;
+}
+
+.currency {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.currency > img {
+    width: 64px;
+    height: 48px;
+}
+
+.currency_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    text-align: start;
+}
+
+.currency_text > h2{
+    font-weight: 700;
+}
+
+.change {
+    font-weight: 600;
+    display: flex;
+    gap: 10px;
+    height: 40px;
+    align-items: center;
+    border-radius: 20px;
+    padding: 5px 15px;
+}
+
+.blocks_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.title {
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    gap: 15px;
+    align-items: center     ;
+    margin-bottom: 24px;
+}
+
+.title > img {
+    width: 25px;
+    color: #155DFC;
+}
+
+.range_buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+p {
+    font-weight: 600;
+    opacity: 0.5;
+}
+
+@media (min-width:  400px) {
+    .range_buttons {
+        flex-direction: row;
+    }
+}
+
+
+@media (min-width: 720px) {
+    .blocks_wrapper {
+        flex-direction: row;
+    }
+}
