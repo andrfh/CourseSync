@@ -26,7 +26,7 @@ function Home({updated_at}) {
     return new Date(year, month - 1, day, hours, minutes, seconds);
   }
 
-  function getMaxUpdatedAt(data) {
+  function getMaxUpdatedAt(data = {}) {
     let maxDateObj = null;
     let maxRawString = null;
 
@@ -49,13 +49,15 @@ function Home({updated_at}) {
             <h1>CourseSync</h1>
             <h3>Курсы валют в реальном времени по отношению к Рублю</h3>
             <div className={styles.sync}>
-            <p>Обновлено: {isCurrenciesLoading ? "" : getMaxUpdatedAt(data)}</p> <button className={styles.update_button} onClick={() => sync()}><img src={update} alt="" className={isSyncLoading ? styles.rotate_button : ''}/></button>
+            <p>Обновлено: {isCurrenciesLoading || error ? "" : getMaxUpdatedAt(data)}</p> <button className={styles.update_button} onClick={() => sync()}><img src={update} alt="" className={isSyncLoading ? styles.rotate_button : ''}/></button>
             </div>
             <p>Источник: www.cbr.ru</p>
         </div>
         <input type="text" className={styles.input} placeholder='Поиск...' onChange={(e) => setInput(e.target.value)}/>
-        {isCurrenciesLoading || isSyncLoading ? <Loader /> : <> 
-        {filteredData[0] ? <CurrenciesList data={filteredData}/> : <p>Ничего не найдено</p>}
+        {error ? <div>Ошибка API</div> : <>
+          {isCurrenciesLoading || isSyncLoading ? <Loader /> : <> 
+          {filteredData[0] ? <CurrenciesList data={filteredData}/> : <p>Ничего не найдено</p>}
+          </>}
         </>}
         <p>Нажмите на любую валюту, чтобы просмотреть подробные графики и исторические данные.</p>
             <p>Developed by <a href="https://github.com/andrfh">antheri</a></p>

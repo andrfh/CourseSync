@@ -19,6 +19,8 @@ router.put("/rates/:id", ratesController.updateRate)
 router.delete("/rates/:id", ratesController.deleteRate);
 
 router.get("/ratesFormated", ratesController.getFormatedRates)
+router.get("/ratesFormated/:id", ratesController.getOneFormatedRate)
+
 
 router.get("/sync", syncController.syncWithCBR)
 

@@ -13,8 +13,13 @@ export function syncCurrencies() {
   return apiFetch(endpoints.sync)
 }
 
-export function currencyDynamic() {
+export function getCurrencyDynamic(id, date_1, date_2) {
+  let body = {
+      date_1: date_1,
+      date_2: date_2
+  }
+  
   return apiFetch(endpoints.dateRange(id), {
-    method: 'POST',
+    method: 'POST', body: JSON.stringify(body)
   })
 }

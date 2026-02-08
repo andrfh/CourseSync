@@ -44,6 +44,22 @@ class RateService {
         return formatedRates
     }
 
+    async getOneFormatedRate(id) {
+        const [rate] = await RateRepo.getOneFormatedRate(id);
+        const formatedRate = {
+            id: rate.id,
+            code: rate.code,
+            name: rate.name,
+            nominal: rate.nominal,
+            value: rate.value?.slice(0, 7),
+            symbol:currencySymbols[rate.code],
+            date: formatDate(rate.date),
+            source: rate.source,
+            updated_at: formatDate(rate.updated_at)
+        }
+        return formatedRate
+    }
+
 }
 
 export default new RateService;
