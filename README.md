@@ -6,9 +6,9 @@
 
 ## **Используемые технологии:**
 
-- **Frontend**: React.js + TanStack Query
-- Backend: Node.js + Express.js + fetch
-- DataBase: PostgreSQL
+- **Frontend**: React.js + TanStack Query + recharts
+- **Backend**: Node.js + Express.js + fetch
+- **DataBase**: PostgreSQL
 
 ## Установка
 
